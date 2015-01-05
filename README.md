@@ -1,29 +1,19 @@
 # README #
 
-This README would normally document whatever steps are necessary to get your application up and running.
-
-### What is this repository for? ###
-
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+This is a custom WordPress plugin to manage all your staff and their departments. 
 
 ### How do I get set up? ###
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+This plugin is pretty ready to roll as is. But to implement the staff output, we'll need to make some manual WP queries. 
 
-### Contribution guidelines ###
 
-* Writing tests
-* Code review
-* Other guidelines
+### WordPress Query Code Examples ###
 
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+<pre><code>
+		// WP_Query arguments
+		$args = array (
+			'post_type'              => 'f1_staffgrid_cpt',
+			'pagination'             => false,
+			'orderby'                => 'menu_order',
+		);
+</code></pre>
