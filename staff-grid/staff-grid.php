@@ -14,13 +14,59 @@ Author URI: http://www.factor1studios.com
 
 
 // Hide ACF field group menu item
-add_filter('acf/settings/show_admin', '__return_false');
+//add_filter('acf/settings/show_admin', '__return_false');
 
 // Include ACF
 include_once( 'vendor/acf/acf.php' );
 
+$remodal_css = plugin_dir_url( 'css/remodal.css' );
+
 // Get the ACF field group for the Staff plugin. 
 include("fields.php");
+
+
+
+
+/**
+ * Register style sheet.
+ */
+function register_plugin_styles() {
+	wp_register_style( 'f1_staff_grid_style', plugins_url( 'staff-grid/css/remodal.css' ) );
+	wp_enqueue_style( 'f1_staff_grid_style' );
+}   
+
+
+
+function remodal_styles()
+{
+    wp_register_style( 'custom-style', plugins_url( '/css/jquery.remodal.css', __FILE__ ), array(), '20120208', 'all' );
+    wp_enqueue_style( 'custom-style' );
+}
+add_action( 'wp_enqueue_scripts', 'remodal_styles' );
+
+
+
+
+/**
+ * Register Modal JS
+ */
+ 
+ function remodal_scripts_basic()
+{
+	// Deregister the included library
+    wp_deregister_script( 'jquery' );
+    wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js', array(), null, false );
+    
+    wp_register_script( 'modal-script', plugins_url( '/js/jquery.remodal.js', __FILE__ ) );
+    wp_enqueue_script( 'modal-script' );
+}
+add_action( 'wp_enqueue_scripts', 'remodal_scripts_basic' );
+
+
+
+
+
+
 
 
 // Register Custom Post Type
