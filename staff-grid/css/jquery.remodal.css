@@ -44,7 +44,7 @@ body.remodal-is-locked {
     display: none;
     overflow: auto;
 
-    text-align: left;
+    text-align: center;
 
     -webkit-overflow-scrolling: touch;
 }
@@ -69,6 +69,7 @@ body.remodal-is-locked {
 
 .remodal {
     position: relative;
+    text-align: left;
 
     display: inline-block;
 }
