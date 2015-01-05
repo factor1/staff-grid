@@ -9,11 +9,10 @@ This plugin is pretty ready to roll as is. But to implement the staff output, we
 
 ### WordPress Query Code Examples ###
 
-<pre><code>
+
 		// WP_Query arguments
 		$args = array (
 			'post_type'              => 'f1_staffgrid_cpt',
 			'pagination'             => false,
 			'orderby'                => 'menu_order',
 		);
-</code></pre>
