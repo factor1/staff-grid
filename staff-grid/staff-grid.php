@@ -87,6 +87,12 @@ function f1_staffgrid() {
 		'not_found'           => __( 'Not found', 'text_domain' ),
 		'not_found_in_trash'  => __( 'Not found in Trash', 'text_domain' ),
 	);
+	$rewrite = array(
+		'slug'                => 'staff',
+		'with_front'          => true,
+		'pages'               => true,
+		'feeds'               => true,
+	);
 	$args = array(
 		'label'               => __( 'f1_staffgrid_cpt', 'text_domain' ),
 		'description'         => __( 'Staff Grid', 'text_domain' ),
@@ -105,7 +111,7 @@ function f1_staffgrid() {
 		'exclude_from_search' => true,
 		'menu_icon'           => plugins_url("/images/icon.png", __FILE__) ,	
 		'publicly_queryable'  => true,
-		'rewrite'             => false,
+		'rewrite'             => $rewrite,
 		'capability_type'     => 'page',
 	);
 	register_post_type( 'f1_staffgrid_cpt', $args );
