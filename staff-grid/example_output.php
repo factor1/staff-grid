@@ -74,7 +74,7 @@
 								
 								<div class="f1_mentor_details_social_container">
 									<?php if(get_field( "phone" )) : echo('Phone: '); the_field( "phone" ); endif; ?></br>
-									<?php if(get_field( "email_address" )) : echo('<a href="'); the_field( "email_address"); echo('">Email '); the_field( "first_name" ); echo('</a></br>'); endif; ?>
+									<?php if(get_field( "email_address" )) : echo('<a href="mailto:'); the_field( "email_address"); echo('">Email '); the_field( "first_name" ); echo('</a></br>'); endif; ?>
 									
 									<?php if(get_field( "twitter_url" )) : echo('<a href="'); the_field( "twitter_url" ); echo('">Twitter</a></br>');  endif; ?>
 									<?php if(get_field( "facebook_url" )) : echo('<a href="'); the_field( "facebook_url" ); echo('">Facebook</a></br>');  endif; ?>

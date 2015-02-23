@@ -99,7 +99,7 @@ function f1_staffgrid() {
 		'labels'              => $labels,
 		'supports'            => array( 'title', 'thumbnail', ),
 		'taxonomies'          => array( 'f1_staffgrid_tax' ),
-		'hierarchical'        => false,
+		'hierarchical'        => true,
 		'public'              => true,
 		'show_ui'             => true,
 		'show_in_menu'        => true,
@@ -145,7 +145,7 @@ function f1_staffgrid_taxonomy() {
 	);
 	$args = array(
 		'labels'                     => $labels,
-		'hierarchical'               => false,
+		'hierarchical'               => true,
 		'public'                     => true,
 		'show_ui'                    => true,
 		'show_admin_column'          => true,
