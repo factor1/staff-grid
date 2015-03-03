@@ -16,6 +16,45 @@ Author URI: http://www.factor1studios.com
 // Hide ACF field group menu item
 //add_filter('acf/settings/show_admin', '__return_false');
 
+// Add Shortcode
+function f1_staffgrid_shortcode($atts) {
+
+	// Code
+echo '<ul class="medium-block-grid-2 staff-grid">';
+
+//atrributes
+extract(shortcode_atts(array(
+        "department" => ''
+    ), $atts));
+// WP_Query arguments
+		global $post;
+			$args = array( 
+			'numberposts' 			=> -1, 
+			'post_type'              => 'f1_staffgrid_cpt',	
+			'f1_staffgrid_tax' 		=> $department, // Department Taxonomy (per site)
+			'meta_key' 				=> 'last_name',
+			'orderby'					=> 'meta_value', 
+			'order' 						=> 'ASC'
+			);
+		
+		$staffgrid = get_posts( $args );
+		foreach( $staffgrid as $post ) :	setup_postdata($post);
+
+			echo '<li>';
+			echo '<h3>'; 
+			the_title(); 
+			echo '</h3>';
+			echo '<span class="staff-title">';
+				the_field('title');
+			echo '</span>';
+			the_field('staff_bio');
+			echo '</li>';
+			
+			endforeach;
+			echo '</ul>';
+}
+add_shortcode( 'staffgrid', 'f1_staffgrid_shortcode' );
+
 // Include ACF
 include_once( 'vendor/acf/acf.php' );
 
