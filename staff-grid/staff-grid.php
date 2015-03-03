@@ -55,7 +55,7 @@ add_action( 'wp_enqueue_scripts', 'remodal_styles' );
 {
 	// Deregister the included library
     wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', 'http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js', array(), null, false );
+    wp_register_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js', array(), null, false );
     
     wp_register_script( 'modal-script', plugins_url( '/js/jquery.remodal.js', __FILE__ ) );
     wp_enqueue_script( 'modal-script' );
