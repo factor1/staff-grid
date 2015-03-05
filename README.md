@@ -40,3 +40,13 @@ Facebook:  the_field( "facebook_url" );
 LinkedIn:  the_field( "twitter_url" );
 	
 Instagram:  the_field( "instagram_url" );
+
+### Using Shortcodes ###
+
+The staff grid now has a shortcode to use on pages without editing the page template. 
+
+To show all staff, simply use [staffgrid]
+
+To show only a certain department use [staffgrid department="yourdepartment"]
+
+And that's pretty much it. When you're using the shortcode there is no need to load the manual query, and it automatically outputs a block grid for easy organization. 
