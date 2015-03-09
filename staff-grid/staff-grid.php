@@ -1,7 +1,7 @@
 <?php
 /**
  * @package Staff_Grid
- * @version 2.0
+ * @version 2.1
  */
 /*
 Plugin Name: Staff Grid
