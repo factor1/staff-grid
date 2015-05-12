@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Staff_Grid
- * @version 2.1
+ * @version 2.2
  */
 /*
 Plugin Name: Staff Grid
 Plugin URI: http://www.factor1studios.com
 Description: This is a custom staff and people grid tool for 2015. 
 Author: Matt Adams
-Version: 2.0
+Version: 2.2
 Author URI: http://www.factor1studios.com
 */
 
@@ -52,6 +52,7 @@ extract(shortcode_atts(array(
 			
 			endforeach;
 			echo '</ul>';
+			wp_reset_postdata();
 }
 add_shortcode( 'staffgrid', 'f1_staffgrid_shortcode' );
 
