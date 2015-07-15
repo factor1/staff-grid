@@ -137,7 +137,7 @@ function f1_staffgrid() {
 		'label'               => __( 'f1_staffgrid_cpt', 'text_domain' ),
 		'description'         => __( 'Staff Grid', 'text_domain' ),
 		'labels'              => $labels,
-		'supports'            => array( 'title', 'thumbnail', ),
+		'supports'            => array( 'title', 'thumbnail','excerpt' ),
 		'taxonomies'          => array( 'f1_staffgrid_tax' ),
 		'hierarchical'        => true,
 		'public'              => true,
