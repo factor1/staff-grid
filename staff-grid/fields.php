@@ -1,4 +1,4 @@
-<?php 
+<?php
 if( function_exists('register_field_group') ):
 
 register_field_group(array (
@@ -107,7 +107,7 @@ register_field_group(array (
 			'prefix' => '',
 			'type' => 'wysiwyg',
 			'instructions' => '',
-			'required' => 1,
+			'required' => 0,
 			'conditional_logic' => 0,
 			'default_value' => '',
 			'toolbar' => 'basic',
