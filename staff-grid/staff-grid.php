@@ -6,7 +6,7 @@
 /*
 Plugin Name: Staff Grid
 Plugin URI: http://www.factor1studios.com
-Description: This is a custom staff and people grid tool for 2015. 
+Description: This is a custom staff and people grid tool for 2015.
 Author: Matt Adams
 Version: 2.2
 Author URI: http://www.factor1studios.com
@@ -28,28 +28,28 @@ extract(shortcode_atts(array(
     ), $atts));
 // WP_Query arguments
 		global $post;
-			$args = array( 
-			'numberposts' 			=> -1, 
-			'post_type'              => 'f1_staffgrid_cpt',	
+			$args = array(
+			'numberposts' 			=> -1,
+			'post_type'              => 'f1_staffgrid_cpt',
 			'f1_staffgrid_tax' 		=> $department, // Department Taxonomy (per site)
 			'meta_key' 				=> 'last_name',
-			'orderby'					=> 'meta_value', 
+			'orderby'					=> 'meta_value',
 			'order' 						=> 'ASC'
 			);
-		
+
 		$staffgrid = get_posts( $args );
 		foreach( $staffgrid as $post ) :	setup_postdata($post);
 
 			echo '<li>';
-			echo '<h3>'; 
-			the_title(); 
+			echo '<h3>';
+			the_title();
 			echo '</h3>';
 			echo '<span class="staff-title">';
 				the_field('title');
 			echo '</span>';
 			the_field('staff_bio');
 			echo '</li>';
-			
+
 			endforeach;
 			echo '</ul>';
 			wp_reset_postdata();
@@ -61,52 +61,8 @@ include_once( 'vendor/acf/acf.php' );
 
 $remodal_css = plugin_dir_url( 'css/remodal.css' );
 
-// Get the ACF field group for the Staff plugin. 
+// Get the ACF field group for the Staff plugin.
 include("fields.php");
-
-
-
-
-/**
- * Register style sheet.
- */
-function register_plugin_styles() {
-	wp_register_style( 'f1_staff_grid_style', plugins_url( 'staff-grid/css/remodal.css' ) );
-	wp_enqueue_style( 'f1_staff_grid_style' );
-}   
-
-
-
-function remodal_styles()
-{
-    wp_register_style( 'custom-style', plugins_url( '/css/jquery.remodal.css', __FILE__ ), array(), '20120208', 'all' );
-    wp_enqueue_style( 'custom-style' );
-}
-add_action( 'wp_enqueue_scripts', 'remodal_styles' );
-
-
-
-
-/**
- * Register Modal JS
- */
- 
- function remodal_scripts_basic()
-{
-	// Deregister the included library
-    //wp_deregister_script( 'jquery' );
-    //wp_register_script( 'jquery', '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js', array(), null, false );
-    
-    wp_register_script( 'modal-script', plugins_url( '/js/jquery.remodal.js', __FILE__ ) );
-    wp_enqueue_script( 'modal-script' );
-}
-add_action( 'wp_enqueue_scripts', 'remodal_scripts_basic' );
-
-
-
-
-
-
 
 
 // Register Custom Post Type
@@ -149,7 +105,7 @@ function f1_staffgrid() {
 		'can_export'          => true,
 		'has_archive'         => false,
 		'exclude_from_search' => true,
-		'menu_icon'           => plugins_url("/images/icon.png", __FILE__) ,	
+		'menu_icon'           => plugins_url("/images/icon.png", __FILE__) ,
 		'publicly_queryable'  => true,
 		'rewrite'             => $rewrite,
 		'capability_type'     => 'page',
