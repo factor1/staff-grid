@@ -29,7 +29,7 @@ extract(shortcode_atts(array(
 // WP_Query arguments
 		global $post;
 			$args = array(
-			'numberposts' 			=> -1,
+			'posts_per_page' 			=> -1,
 			'post_type'              => 'f1_staffgrid_cpt',
 			'f1_staffgrid_tax' 		=> $department, // Department Taxonomy (per site)
 			'meta_key' 				=> 'last_name',
