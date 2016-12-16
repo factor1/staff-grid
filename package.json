@@ -1,0 +1,29 @@
+{
+  "name": "staff-grid-plugin",
+  "version": "2.3.0",
+  "description": "This is a custom WordPress plugin to manage all your staff and their departments.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/factor1/staff-grid.git"
+  },
+  "keywords": [
+    "Staff",
+    "Grid",
+    "Plugin",
+    "WordPress"
+  ],
+  "author": "Eric Stout / Matt Adams (factor1)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/factor1/staff-grid/issues"
+  },
+  "homepage": "https://github.com/factor1/staff-grid#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-zip": "^3.2.0"
+  }
+}
