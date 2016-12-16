@@ -8,4 +8,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed / Updates
 - Removed shortcode that was no functioning correctly
 - Removed example output file
-- Updates syntax/formatting to be more consistent 
+- Updates syntax/formatting to be more consistent
+- Updates to latest ACF Pro from standard ACF (outdated)
