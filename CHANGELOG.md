@@ -10,3 +10,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Removed example output file
 - Updates syntax/formatting to be more consistent
 - Updates to latest ACF Pro from standard ACF (outdated)
+- Restructures plugin to allow for easier dev deployment
+- Updates readme
