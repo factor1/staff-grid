@@ -1,14 +1,14 @@
 <?php
 /**
  * @package Staff_Grid
- * @version 2.3.0
+ * @version 2.3.1
  */
 /*
 Plugin Name: Staff Grid
 Plugin URI: http://www.factor1studios.com
-Description: This is a custom staff and people grid tool for 2015.
-Author: Matt Adams - Eric Stout (factor1)
-Version: 2.3.0
+Description: A custom tool by Factor1 to manage staff members in WordPress.
+Author: Matt Adams, Eric Stout (factor1)
+Version: 2.3.1
 Author URI: http://www.factor1studios.com
 */
 
@@ -63,6 +63,7 @@ function f1_staffgrid() {
 		'publicly_queryable'  => true,
 		'rewrite'             => $rewrite,
 		'capability_type'     => 'page',
+		'show_in_rest'				=> true,
 	);
 	register_post_type( 'f1_staffgrid_cpt', $args );
 
@@ -101,6 +102,7 @@ function f1_staffgrid_taxonomy() {
 		'show_admin_column'          => true,
 		'show_in_nav_menus'          => true,
 		'show_tagcloud'              => true,
+		'show_in_rest'							 => true,
 	);
 	register_taxonomy( 'f1_staffgrid_tax', array( 'f1_staffgrid_cpt' ), $args );
 
