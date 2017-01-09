@@ -3,8 +3,8 @@
 Plugin Name: Staff Grid
 Plugin URI: http://www.factor1studios.com
 Description: A custom tool by Factor1 to manage staff members in WordPress.
-Author: Matt Adams, Eric Stout (factor1)
-Version: 2.3.1
+Author: Factor1 Studios
+Version: 2.3.2
 Author URI: http://www.factor1studios.com
 */
 
@@ -53,7 +53,7 @@ function f1_staffgrid() {
 		'can_export'          => true,
 		'has_archive'         => false,
 		'exclude_from_search' => true,
-		'menu_icon'           => plugins_url( "/images/icon.png", __FILE__ ),
+		'menu_icon'           => plugins_url( '/images/icon.png', __FILE__ ),
 		'publicly_queryable'  => true,
 		'rewrite'             => $rewrite,
 		'capability_type'     => 'page',
