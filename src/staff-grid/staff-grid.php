@@ -8,6 +8,9 @@ Version: 2.3.4
 Author URI: http://www.factor1studios.com
 */
 
+define( 'PLUGIN_VERSION', '2.3.4' );
+define( 'SG_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+
 // Include ACF
 include_once( 'vendor/acf-pro/acf.php' );
 
@@ -99,3 +102,9 @@ function f1_staffgrid_taxonomy() {
 
 // Hook into the 'init' action
 add_action( 'init', 'f1_staffgrid_taxonomy', 0 );
+
+// Enqueue Styles
+function f1_staffgrid_styles() {
+  wp_enqueue_style('f1-staff-grid-css', SG_PLUGIN_PATH . '/styles/css/f1-staff-grid.min.css', array(), PLUGIN_VERSION );
+}
+add_action( 'wp_enqueue_scripts', 'f1_staffgrid_styles' );

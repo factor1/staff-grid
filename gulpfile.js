@@ -13,7 +13,7 @@ const gulp         = require('gulp'),
 // Set the paths you will be working with
 const cssFiles     = ['./src/staff-grid/styles/css/*.css', '!./src/staff-grid/styles/css/*.min.css'],
       sassFiles    = ['./src/staff-grid/styles/scss/**/*.scss'],
-      styleFiles   = [cssFiles, sassFiles],
+      styleFiles   = [cssFiles, sassFiles];
 
 /*------------------------------------------------------------------------------
   Development Tasks
@@ -35,10 +35,7 @@ gulp.task('sass', function() {
         cascade: false
       }))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest( './assets/css' ))
-    .pipe(browserSync.reload({
-      stream: true
-    }));
+    .pipe(gulp.dest( './src/staff-grid/styles/css' ));
 });
 
 /*------------------------------------------------------------------------------
@@ -59,10 +56,7 @@ gulp.task('minify-css', ['sass'], function() {
       calc: {mediaQueries: true},
       zindex: false
     }))
-    .pipe(gulp.dest( './assets/css' ))
-    .pipe(browserSync.reload({
-      stream: true
-    }));
+    .pipe(gulp.dest( './src/staff-grid/styles/css' ));
 });
 
 
