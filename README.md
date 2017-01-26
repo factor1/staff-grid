@@ -52,4 +52,17 @@ if (get_field( 'title' )) {
 ```
 
 ## Shortcodes
-The use of shortcodes has been removed in version `2.3.0`
+New, _working_ shortcodes have been added in `2.4.0`. There are three attributes
+you can add to the shortcode. All staff grid items output from the shortcode are
+sorted ASC by menu order.
+
+- department - show staff items pertaining to a certain department (Default: `''` - shows all)
+- thumb-size - thumbnail size to use for the image. (Default: `'full'`)
+- show - number of staff items to show. (Default: `10`)
+
+### Working Example
+Show 5 developers with a small thumbnail size:
+
+```
+[f1-staff-grid department="developers" show="5" thumb-size="small"]
+```
