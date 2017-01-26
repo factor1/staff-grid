@@ -9,7 +9,13 @@ Author URI: http://www.factor1studios.com
 */
 
 define( 'PLUGIN_VERSION', '2.3.4' );
-define( 'SG_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+define( 'SG_PLUGIN_PATH', plugin_dir_url( __FILE__ ) );
+
+/*
+ *
+ *   Get Includes
+ *
+ */
 
 // Include ACF
 include_once( 'vendor/acf-pro/acf.php' );
@@ -17,7 +23,11 @@ include_once( 'vendor/acf-pro/acf.php' );
 // Get the ACF field group for the Staff plugin.
 include( 'fields.php' );
 
-// Register Custom Post Type
+/*
+ *
+ *   Add Custom Post Type
+ *
+ */
 function f1_staffgrid() {
 	$labels  = array(
 		'name'               => _x( 'Staff', 'Post Type General Name', 'text_domain' ),
@@ -68,7 +78,11 @@ function f1_staffgrid() {
 // Hook into the 'init' action
 add_action( 'init', 'f1_staffgrid', 0 );
 
-// Register Custom Taxonomy
+/*
+ *
+ *   Add Custom Taxonomy
+ *
+ */
 function f1_staffgrid_taxonomy() {
 	$labels = array(
 		'name'                       => _x( 'Departments', 'Taxonomy General Name', 'text_domain' ),
@@ -103,7 +117,87 @@ function f1_staffgrid_taxonomy() {
 // Hook into the 'init' action
 add_action( 'init', 'f1_staffgrid_taxonomy', 0 );
 
-// Enqueue Styles
+/*
+ *
+ *   Add Shortcode
+ *
+ */
+function f1_staff_grid_shortcode( $atts ) {
+
+	// Attributes
+	$atts = shortcode_atts(
+		array(
+			'department' => '',
+			'show' => '10',
+			'thumb-size' => 'full',
+		),
+		$atts
+	);
+
+	// WP_Query arguments
+	$args = array(
+		'post_type'              => array( 'f1_staffgrid_cpt' ),
+		'nopaging'               => false,
+		'f1_staffgrid_tax'			 => $atts['department'],
+		'posts_per_page'         => $atts['show'],
+		'order'                  => 'ASC',
+		'orderby'                => 'menu_order',
+	);
+
+	// The Query
+	$staff_query = new WP_Query( $args );
+
+	$output = '';
+	$name = '';
+	$title = '';
+	$image = '';
+	$permalink = '';
+	$id = '';
+
+
+	// The Loop
+	if ( $staff_query->have_posts() ) {
+		$output .= '<div class="f1-staff-grid"><ul class="f1-staff-grid--container">';
+		while ( $staff_query->have_posts() ) {
+			$staff_query->the_post();
+			$id = get_the_ID();
+			$name = get_the_title();
+			$title = get_field('title');
+			$image = get_the_post_thumbnail($id, $atts['thumb-size']);
+			$permalink = get_the_permalink();
+
+			$output .= '<li class="f1-staff-grid--item">';
+			$output .= '<a href="'.$permalink.'" class="f1-staff-grid--link" title="'.$name.'">';
+
+			if( has_post_thumbnail() ){
+				$output .= '<div class="f1-staff-grid--image">'.$image.'</div>';
+			}
+
+			$output .= '<div class="f1-staff-grid--name">'.$name.'</div>';
+			$output .= '<div class="f1-staff-grid--title">'.$title.'</div>';
+			$output .= '</a>';
+			$output .= '</li>';
+
+		}
+		$output .= '</ul></div>';
+	} else {
+		// no posts found
+		$output .= '<h5>No Staff Found</h5>';
+	}
+
+	// Restore original Post Data
+	wp_reset_postdata();
+
+	return $output;
+
+}
+add_shortcode( 'f1-staff-grid', 'f1_staff_grid_shortcode' );
+
+/*
+ *
+ *   Enqueue Styles
+ *
+ */
 function f1_staffgrid_styles() {
   wp_enqueue_style('f1-staff-grid-css', SG_PLUGIN_PATH . '/styles/css/f1-staff-grid.min.css', array(), PLUGIN_VERSION );
 }
