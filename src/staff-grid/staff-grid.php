@@ -8,9 +8,6 @@ Version: 2.3.4
 Author URI: http://www.factor1studios.com
 */
 
-define( 'PLUGIN_VERSION', '2.3.4' );
-define( 'SG_PLUGIN_PATH', plugin_dir_url( __FILE__ ) );
-
 /*
  *
  *   Get Includes
@@ -192,13 +189,3 @@ function f1_staff_grid_shortcode( $atts ) {
 
 }
 add_shortcode( 'f1-staff-grid', 'f1_staff_grid_shortcode' );
-
-/*
- *
- *   Enqueue Styles
- *
- */
-function f1_staffgrid_styles() {
-  wp_enqueue_style('f1-staff-grid-css', SG_PLUGIN_PATH . '/styles/css/f1-staff-grid.min.css', array(), PLUGIN_VERSION );
-}
-add_action( 'wp_enqueue_scripts', 'f1_staffgrid_styles' );
