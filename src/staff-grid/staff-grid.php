@@ -4,7 +4,7 @@ Plugin Name: Staff Grid
 Plugin URI: http://www.factor1studios.com
 Description: A set of tools to manage company staff and departments.
 Author: Factor1 Studios
-Version: 2.4.1
+Version: 2.5.0
 Author URI: http://www.factor1studios.com
 */
 
@@ -53,7 +53,7 @@ function f1_staffgrid() {
 		'labels'              => $labels,
 		'supports'            => array( 'title', 'thumbnail', 'excerpt' ),
 		'taxonomies'          => array( 'f1_staffgrid_tax' ),
-		'hierarchical'        => true,
+		'hierarchical'        => false,
 		'public'              => true,
 		'show_ui'             => true,
 		'show_in_menu'        => true,
@@ -62,7 +62,7 @@ function f1_staffgrid() {
 		'menu_position'       => 5,
 		'can_export'          => true,
 		'has_archive'         => true,
-		'exclude_from_search' => true,
+		'exclude_from_search' => false,
 		'menu_icon'           => plugins_url( '/images/icon.png', __FILE__ ),
 		'publicly_queryable'  => true,
 		'rewrite'             => $rewrite,
