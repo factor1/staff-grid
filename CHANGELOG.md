@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
+## [2.5.0] - 2017-10-31
+### Updates
+Updates the following arguments for the staff grid custom post type.
+
+- `hierarchical` is now false
+- `exclude_from_search` is now false
+
 ## [2.4.1] - 2017-01-26
 ### Change
 - Changes default thumb size for shortcodes to large.
