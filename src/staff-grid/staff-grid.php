@@ -53,7 +53,7 @@ function f1_staffgrid() {
 		'labels'              => $labels,
 		'supports'            => array( 'title', 'thumbnail', 'excerpt' ),
 		'taxonomies'          => array( 'f1_staffgrid_tax' ),
-		'hierarchical'        => false,
+		'hierarchical'        => true,
 		'public'              => true,
 		'show_ui'             => true,
 		'show_in_menu'        => true,
