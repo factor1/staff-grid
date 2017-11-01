@@ -1,6 +1,6 @@
 {
   "name": "staff-grid-plugin",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "description": "This is a custom WordPress plugin to manage all your staff and their departments.",
   "main": "gulpfile.js",
   "scripts": {
