@@ -39,7 +39,7 @@ The default ACF fields:
 - Bio: `the_field( 'staff_bio' );`
 - Twitter: `the_field( 'twitter_url' );`
 - Facebook: `the_field( 'facebook_url' );`
-- LinkedIn: `the_field( 'twitter_url' );`
+- LinkedIn: `the_field( 'linkedin_url' );`
 - Instagram: `the_field( 'instagram_url' );`
 
 It is a good idea to wrap these in conditional logic so that they will only be displayed if there is a value.
