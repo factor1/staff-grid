@@ -4,7 +4,7 @@ A custom WordPress plugin to manage a company staff and departments.
 ## Installation
 Clone the repo or download the latest release from Github.
 
-In the WordPress plugins area, choose to upload a new plugin. Upload the zip file located at `staff-grid/dist/staff-grip.zip`
+In the WordPress plugins area, choose to upload a new plugin. Upload the zip file located at `staff-grid/dist/staff-grid.zip`
 
 For manual installation, copy the plugin directory found in `staff-grid/src` into the `wp-content/plugins` folder. Activate the plugin from the WordPress admin area.
 
@@ -39,7 +39,7 @@ The default ACF fields:
 - Bio: `the_field( 'staff_bio' );`
 - Twitter: `the_field( 'twitter_url' );`
 - Facebook: `the_field( 'facebook_url' );`
-- LinkedIn: `the_field( 'twitter_url' );`
+- LinkedIn: `the_field( 'linkedin_url' );`
 - Instagram: `the_field( 'instagram_url' );`
 
 It is a good idea to wrap these in conditional logic so that they will only be displayed if there is a value.
